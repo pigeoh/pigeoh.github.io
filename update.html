@@ -33,16 +33,43 @@
             margin-top: 20px;
         }
     </style>
+    <script>
+        // 检测并根据Cookie加载不同语言的内容
+        document.addEventListener('DOMContentLoaded', function() {
+            var language = getCookie('language');
+            if (language === 'zh') {
+                document.getElementById('title').innerText = '更新 - 2024年7月7日';
+                document.getElementById('content1').innerHTML = '<p><strong>修复了TYPE 1 HOKI ATGM每个导弹口可发射多枚导弹的bug。</strong></p><p><strong>添加昭南正规军，以及其附属的Infantry编制和Scout编制。</strong></p>';
+                document.getElementById('back-link').innerText = '返回';
+            } else {
+                document.getElementById('title').innerText = 'Update - July 7, 2024';
+                document.getElementById('content1').innerHTML = '<p><strong>Fixed the bug where TYPE 1 HOKI ATGM could launch multiple missiles from each missile port.</strong></p><p><strong>Added Shonan Regular Army, along with its Infantry and Scout formations.</strong></p>';
+                document.getElementById('back-link').innerText = 'Back';
+            }
+        });
+
+        // 获取Cookie的函数
+        function getCookie(name) {
+            var cookieArr = document.cookie.split(';');
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split('=');
+                if (name === cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+    </script>
 </head>
 <body>
     <div class="container">
-        <h2>Update - July 7, 2024</h2>
-        <div class="content">
-            <p><strong>修复了TYPE 1 HOKI ATGM每个导弹口可发射多枚导弹的bug。</strong></p>
-            <p><strong>添加昭南正规军，以及其附属的Infantry编制和Scout编制。</strong></p>
+        <h2 id="title">Update - July 7, 2024</h2>
+        <div class="content" id="content1">
+            <p><strong>Fixed the bug where TYPE 1 HOKI ATGM could launch multiple missiles from each missile port.</strong></p>
+            <p><strong>Added Shonan Regular Army, along with its Infantry and Scout formations.</strong></p>
         </div>
         <div class="back-button">
-            <a href="index.html">返回</a>
+            <a href="index.html" id="back-link">Back</a>
         </div>
     </div>
 </body>
