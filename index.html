@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firefight: Shonan Emergency State</title>
+    <title>Update - July 7, 2024</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,107 +11,62 @@
             background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
         }
         .container {
             margin-top: 50px;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
-        }
-        .image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .title {
-            margin-top: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .button-container {
-            margin-top: 20px;
-        }
-        .button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            margin: 5px;
-        }
-        .footer {
-            margin-top: 40px;
-            font-size: 14px;
-            color: #777;
+            width: 80%;
+            margin: 0 auto;
         }
         .content {
             text-align: left;
             margin-top: 20px;
-            padding: 0 20%;
+            padding: 0 20px;
         }
         .quote {
-            font-size: 18px;
             font-style: italic;
             color: #555;
         }
+        .back-button {
+            margin-top: 20px;
+        }
     </style>
     <script>
-        function setLanguage(lang) {
+        // 获取语言选择
+        const language = (document.location.search.split('lang=')[1] || '').split('&')[0] || 'en';
+
+        function setLanguage() {
             const title = document.getElementById('title');
-            const footer = document.getElementById('footer-text');
-            const content1 = document.getElementById('content-text1');
-            const content2 = document.getElementById('content-text2');
-            
-            if (lang === 'en') {
-                title.innerText = 'Firefight: Shonan Emergency State';
-                footer.innerHTML = 'Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV: The New Order mod. Thank you for visiting this website.';
-                content1.innerHTML = '<span class="quote">"Over 20 years of war, whether it\'s the 14th Army in Malaya, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya\'s economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>';
-                content2.innerHTML = '<h2>How to get this mod?</h2><p>You can download it by clicking the button below!</p><button class="button" onclick="goToUpdatePage()">July 7, 2024 Update</button>';
-            } else if (lang === 'zh') {
-                title.innerText = '交战: 昭南紧急状态';
-                footer.innerHTML = '访问量: <span id="visit-count">0</span><br>本模组灵感来源于钢铁雄心4TNO模组，感谢您访问本网站。';
-                content1.innerHTML = '<span class="quote">“超过20年的战争，无论是马来亚的第14军，马来亚人民，马来亚游击队，还是日本人，又或是远在大洋彼岸的美国人，所有人都已经筋疲力尽。日复一日的治安战已经拖垮了马来亚的经济。马来亚除了人和信念，早已一无所有。所有的希望都被淹没在这片绿色的地狱中，而这片绿色的地狱又被白磷弹所淹没。”</span>';
-                content2.innerHTML = '<h2>如何获得本模组</h2><p>你可以通过以下下载链接获得本模组！</p><button class="button" onclick="goToUpdatePage()">2024年7月7日更新</button>';
+            const content1 = document.getElementById('content1');
+            const content2 = document.getElementById('content2');
+            const backButton = document.getElementById('back-button');
+
+            if (language === 'zh') {
+                title.innerText = '更新 - 2024年7月7日';
+                content1.innerHTML = '<p><strong>修复了TYPE 1 HOKI ATGM每个导弹口可发射多枚导弹的bug。</strong></p><p><strong>添加昭南正规军，以及其附属的Infantry编制和Scout编制。</strong></p>';
+                content2.innerHTML = '<a href="index.html">返回</a>';
+            } else {
+                title.innerText = 'Update - July 7, 2024';
+                content1.innerHTML = '<p><strong>Fixed the bug where each missile port of TYPE 1 HOKI ATGM could launch multiple missiles.</strong></p><p><strong>Added Shonan Regular Army, along with its Infantry and Scout formations.</strong></p>';
+                content2.innerHTML = '<a href="index.html">Back</a>';
             }
         }
-        
-        // 模拟访问量增加
-        let visitCount = 0;
-        function increaseVisitCount() {
-            visitCount++;
-            document.getElementById('visit-count').innerText = visitCount;
-        }
-        
-        // 模拟页面加载时自动增加访问量
-        window.onload = function() {
-            increaseVisitCount();
-        };
-        
-        // 跳转到更新页面
-        function goToUpdatePage() {
-            window.location.href = 'update.html';
-        }
+
+        // 页面加载时设置语言
+        window.onload = setLanguage;
     </script>
 </head>
 <body>
     <div class="container">
-        <img src="https://www.mediafire.com/convkey/00ff/pppcdt00hfgtzwyzg.jpg" alt="Shonan Emergency State" class="image">
-        <div id="title" class="title">Shonan Emergency State</div>
-        <div class="button-container">
-            <button class="button" onclick="setLanguage('en'); increaseVisitCount()">English</button>
-            <button class="button" onclick="setLanguage('zh'); increaseVisitCount()">中文</button>
+        <h2 id="title">Update - July 7, 2024</h2>
+        <div class="content" id="content1">
+            <!-- This section will be dynamically updated based on language -->
         </div>
-        <div class="content" id="content-text1">
-            <span class="quote">"Over 20 years of war, whether it's the 14th Army in Malaya, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
+        <div class="back-button" id="content2">
+            <!-- This section will be dynamically updated based on language -->
         </div>
-        <div class="content" id="content-text2">
-            <!-- This section will be dynamically updated based on language selection -->
-        </div>
-    </div>
-    <div class="footer" id="footer-text">
-        Visits: <span id="visit-count">0</span><br>
-        This mod is inspired by the Hearts of Iron IV: The New Order mod. Thank you for visiting this website.
     </div>
 </body>
 </html>
