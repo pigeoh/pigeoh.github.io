@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -61,31 +62,39 @@
             const footer = document.getElementById('footer-text');
             const content1 = document.getElementById('content-text1');
             const content2 = document.getElementById('content-text2');
-            
+
             if (lang === 'en') {
+                document.cookie = "language=en; path=/";
                 title.innerText = 'Firefight: Shonan Emergency State';
                 footer.innerHTML = 'Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV: The New Order mod. Thank you for visiting this website.';
                 content1.innerHTML = '<span class="quote">"Over 20 years of war, whether it\'s the 14th Army in Malaya, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya\'s economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>';
-                content2.innerHTML = '<h2>How to Get This Mod</h2><p>You can obtain this mod through the following download link!</p><p>Insert your download link here</p>';
+                content2.innerHTML = '<h2>How to Get This Mod</h2><p>You can obtain this mod through the following link!</p><p><a href="update.html">Go to Update Page</a></p>';
             } else if (lang === 'zh') {
+                document.cookie = "language=zh; path=/";
                 title.innerText = '交战: 昭南紧急状态';
                 footer.innerHTML = '访问量: <span id="visit-count">0</span><br>本模组灵感来源于钢铁雄心4TNO模组，感谢您访问本网站。';
                 content1.innerHTML = '<span class="quote">“超过20年的战争，无论是马来亚的第14军，马来亚人民，马来亚游击队，还是日本人，又或是远在大洋彼岸的美国人，所有人都已经筋疲力尽。日复一日的治安战已经拖垮了马来亚的经济。马来亚除了人和信念，早已一无所有。所有的希望都被淹没在这片绿色的地狱中，而这片绿色的地狱又被白磷弹所淹没。”</span>';
-                content2.innerHTML = '<h2>如何获得本模组</h2><p>你可以通过以下下载链接获得本模组！</p><p>Insert your download link here</p>';
+                content2.innerHTML = '<h2>如何获得本模组</h2><p>你可以通过以下链接获得本模组！</p><p><a href="update.html">前往更新页面</a></p>';
             }
         }
-        
-        // 模拟访问量增加
+
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        window.onload = function() {
+            const language = getCookie('language') || 'en';
+            setLanguage(language);
+            increaseVisitCount();
+        };
+
         let visitCount = 0;
         function increaseVisitCount() {
             visitCount++;
             document.getElementById('visit-count').innerText = visitCount;
         }
-        
-        // 模拟页面加载时自动增加访问量
-        window.onload = function() {
-            increaseVisitCount();
-        };
     </script>
 </head>
 <body>
@@ -101,8 +110,8 @@
         </div>
         <div class="content" id="content-text2">
             <h2>How to Get This Mod</h2>
-            <p>You can obtain this mod through the following download link!</p>
-            <p>Insert your download link here</p>
+            <p>You can obtain this mod through the following link!</p>
+            <p><a href="update.html">Go to Update Page</a></p>
         </div>
     </div>
     <div class="footer" id="footer-text">
