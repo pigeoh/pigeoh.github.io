@@ -67,7 +67,7 @@
                 title.innerText = 'Firefight: Shonan Emergency State';
                 footer.innerHTML = 'Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV: The New Order mod. Thank you for visiting this website.';
                 content1.innerHTML = '<span class="quote">"Over 20 years of war, whether it\'s the 14th Army in Malaya, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya\'s economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>';
-                content2.innerHTML = '<h2>How to Get This Mod</h2><p>You can obtain this mod through the following download link!</p><p>Insert your download link here</p>';
+                content2.innerHTML = '<h2>如何获得本模组</h2><p>你可以通过以下下载链接获得本模组！</p><p>Insert your download link here</p>';
             } else if (lang === 'zh') {
                 title.innerText = '交战: 昭南紧急状态';
                 footer.innerHTML = '访问量: <span id="visit-count">0</span><br>本模组灵感来源于钢铁雄心4TNO模组，感谢您访问本网站。';
@@ -87,6 +87,11 @@
         window.onload = function() {
             increaseVisitCount();
         };
+        
+        // 跳转到更新页面
+        function goToUpdatePage() {
+            window.location.href = 'update.html';
+        }
     </script>
 </head>
 <body>
@@ -96,13 +101,14 @@
         <div class="button-container">
             <button class="button" onclick="setLanguage('en'); increaseVisitCount()">English</button>
             <button class="button" onclick="setLanguage('zh'); increaseVisitCount()">中文</button>
+            <button class="button" onclick="goToUpdatePage()">2024年7月7日更新</button>
         </div>
         <div class="content" id="content-text1">
             <span class="quote">"Over 20 years of war, whether it's the 14th Army in Malaya, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
         </div>
         <div class="content" id="content-text2">
-            <h2>How to Get This Mod</h2>
-            <p>You can obtain this mod through the following download link!</p>
+            <h2>如何获得本模组</h2>
+            <p>你可以通过以下下载链接获得本模组！</p>
             <p>Insert your download link here</p>
         </div>
     </div>
