@@ -57,18 +57,18 @@
         }
         @media (max-width: 768px) {
             .title {
-             font-size: 20px; /* 调整标题的字体大小 */
+                font-size: 20px; /* 调整标题的字体大小 */
+            }
+            .button {
+                font-size: 14px; /* 调整按钮的字体大小 */
+            }
+            .quote {
+                font-size: 16px; /* 调整引用文本的字体大小 */
+            }
+            .content {
+                padding: 0 10%; /* 调整内容区域的左右边距 */
+            }
         }
-        .button {
-            font-size: 14px; /* 调整按钮的字体大小 */
-        }
-        .quote {
-            font-size: 16px; /* 调整引用文本的字体大小 */
-        }
-        .content {
-            padding: 0 10%; /* 调整内容区域的左右边距 */
-        }
-     }
     </style>
     <script>
         function setLanguage(lang) {
@@ -116,8 +116,10 @@
         <img src="https://www.mediafire.com/convkey/00ff/pppcdt00hfgtzwyzg.jpg" alt="Shonan Emergency State" class="image">
         <div id="title" class="title">Shonan Emergency State</div>
         <div class="button-container">
-            <button class="button" onclick="setLanguage('en'); increaseVisitCount()">English</button>
-            <button class="button" onclick="setLanguage('zh'); increaseVisitCount()">中文</button>
+            <select class="button" onchange="setLanguage(this.value); increaseVisitCount()">
+                <option value="en">English</option>
+                <option value="zh">中文</option>
+            </select>
         </div>
         <div class="content" id="content-text1">
             <span class="quote">"Over 20 years of war, whether it's the 14th Army in Malaya, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
@@ -136,3 +138,4 @@
     </div>
 </body>
 </html>
+
