@@ -106,9 +106,15 @@
             <span class="quote">"Over 20 years of war, whether it's the 14th Army in Malaya, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
         </div>
         <div class="content" id="content-text2">
-            <h2>如何获得本模组</h2>
-            <p>你可以通过以下下载链接获得本模组！</p>
-            <button class="button" onclick="goToUpdatePage()">2024年7月7日更新</button>
+            if (lang === 'en') {
+                <h2>How to get this mod?</h2>
+                <p>You can download it by these page!</p>
+                <button class="button" onclick="goToUpdatePage()">2024年7月7日更新</button>
+            } else if (lang === 'zh') {
+                <h2>如何获得本模组</h2>
+                <p>你可以通过以下下载链接获得本模组！</p>
+                <button class="button" onclick="goToUpdatePage()">2024年7月7日更新</button>
+            }
         </div>
     </div>
     <div class="footer" id="footer-text">
