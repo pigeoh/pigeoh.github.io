@@ -45,12 +45,24 @@
             const footer = document.getElementById('footer-text');
             if (lang === 'en') {
                 title.innerText = 'Firefight: Shonan Emergency State';
-                footer.innerText = 'This mod is inspired by the Hearts of Iron IV: The New Order mod. Thank you for visiting this website.';
+                footer.innerHTML = 'Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV: The New Order mod. Thank you for visiting this website.';
             } else if (lang === 'zh') {
                 title.innerText = '交战: 昭南紧急状态';
-                footer.innerText = '本模组灵感来源于钢铁雄心4TNO模组，感谢您访问本网站。';
+                footer.innerHTML = '访问量: <span id="visit-count">0</span><br>本模组灵感来源于钢铁雄心4TNO模组，感谢您访问本网站。';
             }
         }
+        
+        // 模拟访问量增加
+        let visitCount = 0;
+        function increaseVisitCount() {
+            visitCount++;
+            document.getElementById('visit-count').innerText = visitCount;
+        }
+        
+        // 模拟页面加载时自动增加访问量
+        window.onload = function() {
+            increaseVisitCount();
+        };
     </script>
 </head>
 <body>
@@ -58,11 +70,12 @@
         <img src="https://www.mediafire.com/convkey/00ff/pppcdt00hfgtzwyzg.jpg" alt="Shonan Emergency State" class="image">
         <div id="title" class="title">Shonan Emergency State</div>
         <div class="button-container">
-            <button class="button" onclick="setLanguage('en')">English</button>
-            <button class="button" onclick="setLanguage('zh')">中文</button>
+            <button class="button" onclick="setLanguage('en'); increaseVisitCount()">English</button>
+            <button class="button" onclick="setLanguage('zh'); increaseVisitCount()">中文</button>
         </div>
     </div>
     <div class="footer" id="footer-text">
+        Visits: <span id="visit-count">0</span><br>
         This mod is inspired by the Hearts of Iron IV: The New Order mod. Thank you for visiting this website.
     </div>
 </body>
