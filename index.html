@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,94 +15,69 @@
             background-position: center;
             background-repeat: no-repeat;
         }
-
         .container {
             margin-top: 50px;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
         }
-
         .image {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
         }
-
         .title {
             margin-top: 20px;
             font-size: 24px;
             font-weight: bold;
         }
-
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
         .footer {
             margin-top: 40px;
             font-size: 14px;
             color: #777;
         }
-
         .content {
             text-align: left;
             margin-top: 20px;
             padding: 0 20%;
         }
-
         .quote {
             font-size: 18px;
             font-style: italic;
             color: #555;
         }
-
         .version {
             margin-top: 20px;
             font-size: 12px;
         }
-
         @media (max-width: 768px) {
             .title {
-                font-size: 20px;
+                font-size: 20px; /* Adjust title font size */
             }
-
+            .button {
+                font-size: 14px; /* Adjust button font size */
+            }
             .quote {
-                font-size: 16px;
+                font-size: 16px; /* Adjust quote font size */
             }
-
             .content {
-                padding: 0 10%;
+                padding: 0 10%; /* Adjust content padding */
             }
-        }
-
-        .image-container {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .image-caption {
-            font-size: 14px;
-            color: #555;
-            margin-top: 5px;
-        }
-
-        .dropdown-container {
-            margin-top: 20px;
-        }
-
-        .dropdown {
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
         }
     </style>
     <script>
-        // 定义网站版本常量
-        const website_version = '0.1.30';
+        const website_version = '0.1.3'; // Define the website version as a constant
 
-        // 设置语言功能
-        function setLanguage() {
-            // 获取语言Cookie值
-            const lang = getCookie('language');
-            
-            // 获取页面元素
+        function setLanguage(lang) {
             const title = document.getElementById('title');
             const footer = document.getElementById('footer-text');
             const content1 = document.getElementById('content-text1');
@@ -111,9 +85,8 @@
             const visitCount = document.getElementById('visit-count');
             const versionText = document.getElementById('version-text');
 
-            // 根据语言选择更新内容
             if (lang === 'en') {
-                // 更新英文内容
+                document.cookie = "language=en; path=/";
                 title.innerText = 'Firefight: Shonan Emergency State';
                 footer.innerHTML = 'Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV mod "The New Order: Last Days of Europe" and developed based on the game Firefight. Thank you for visiting this website.';
                 content1.innerHTML = `
@@ -121,7 +94,7 @@
                     <h2>View</h2>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
-                        <p class="image-caption">Type 1 Ho-Ki ATGM</p>
+                        <p class="image-caption">Type 1 Ho-ki ATGM</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
@@ -149,7 +122,7 @@
                 versionText.innerText = `Website Version: ${website_version}`;
                 visitCount.style.display = 'inline';
             } else if (lang === 'zh') {
-                // 更新中文内容
+                document.cookie = "language=zh; path=/";
                 title.innerText = '交战: 昭南紧急状态';
                 footer.innerHTML = `
                     访问量: <span id="visit-count">0</span>
@@ -167,7 +140,7 @@
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/b3d8/c4u4lgt5cf71bkbzg.jpg" alt="Type 1 Ho-Ki APC and Type 10 APC" class="image">
-                        <p class="image-caption">Type 1 Ho-Ki装甲运兵车和Type 10装甲运兵车</p>
+                        <p class="image-caption">Type 1 Ho-Ki 步战车与Type 10步战车</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/6e55/5zcy3jvayqcfp0kzg.jpg" alt="Menu UI" class="image">
@@ -187,52 +160,61 @@
                 versionText.innerText = `网站版本: ${website_version}`;
                 visitCount.style.display = 'inline';
             }
+            } else {
+                // Default to English if language is neither 'en' nor 'zh'
+                setLanguage('en');
+                return;
+            }
         }
 
-        // 获取Cookie
         function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
+            const value = ; ${document.cookie};
+            const parts = value.split(; ${name}=);
             if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
-        // 页面加载完成时执行初始化操作
-        document.addEventListener("DOMContentLoaded", function() {
-            setLanguage(); // 设置语言内容
-            const dropdown = document.querySelector('.dropdown');
-            const lang = getCookie('language');
+        window.onload = function() {
+            const referrer = document.referrer;
+            const language = getCookie('language') || 'en';
+            setLanguage(language);
+            document.getElementById('language-select').value = language; // Set dropdown value based on cookie
+            increaseVisitCount();
+        };
 
-            if (lang) {
-                dropdown.value = lang; // 设置下拉菜单为存储的语言
-            }
-
-            // 添加下拉菜单变更事件监听器
-            dropdown.addEventListener('change', function() {
-                const selectedLang = this.value;
-                setLanguage(selectedLang);
-            });
-        });
-
+        let visitCount = 0;
+        function increaseVisitCount() {
+            visitCount++;
+            document.getElementById('visit-count').innerText = visitCount;
+        }
     </script>
 </head>
-
 <body>
     <div class="container">
-        <div class="image-container">
-            <img src="https://www.mediafire.com/convkey/ab71/pppcdt00hfgtzwyzg.jpg" alt="Top Image" class="image">
-        </div>
-        <h1 id="title" class="title"></h1>
-        <div class="dropdown-container">
-            <select class="dropdown">
+        <div class="version" id="version-text">Website Version</div>
+        <img src="https://www.mediafire.com/convkey/00ff/pppcdt00hfgtzwyzg.jpg" alt="Shonan Emergency State" class="image">
+        <div id="title" class="title">Firefight: Shonan Emergency State</div>
+        <div class="button-container">
+            <select id="language-select" class="button" onchange="setLanguage(this.value); increaseVisitCount()">
                 <option value="en">English</option>
                 <option value="zh">中文</option>
             </select>
         </div>
-        <div id="content-text1" class="content"></div>
-        <div id="content-text2" class="content"></div>
-        <div id="footer-text" class="footer"></div>
-        <div id="version-text" class="version"></div>
+        <div class="content" id="content-text1">
+            <span class="quote">"Over 20 years of war, whether it's the 25th Army, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
+        </div>
+        <div class="content" id="content-text2">
+            <h2>How to Get This Mod</h2>
+            <p>You can obtain this mod through the following link!</p>
+            <p><a href="update.html">Update - July 7, 2024</a></p>
+            <p><a href="update2.html">Update - July 1, 2024</a></p>
+            <p><a href="update3.html">Update - June 22, 2024</a></p>
+            <p><a href="update3.html">Update - June 12, 2024</a></p>
+        </div>
+    </div>
+    <div class="footer" id="footer-text">
+        <span id="visit-count" style="display: none;">Visits:0<br></span>
+            This mod is inspired by the Hearts of Iron IV mod "The New Order: Last Days of Europe" and developed based on
+            the game Firefight. Thank you for visiting this website.
     </div>
 </body>
-
 </html>
