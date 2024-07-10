@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update - July 1, 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .content {
+            text-align: left;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+        .quote {
+            font-style: italic;
+            color: #555;
+        }
+        .back-button, .download-link {
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .title {
+             font-size: 20px; /* 调整标题的字体大小 */
+        }
+        .button {
+            font-size: 14px; /* 调整按钮的字体大小 */
+        }
+        .quote {
+            font-size: 16px; /* 调整引用文本的字体大小 */
+        }
+        .content {
+            padding: 0 10%; /* 调整内容区域的左右边距 */
+        }
+    </style>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update - July 1, 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .content {
+            text-align: left;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+        .quote {
+            font-style: italic;
+            color: #555;
+        }
+        .back-button, .download-link {
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .title {
+                font-size: 20px; /* 调整标题的字体大小 */
+            }
+            .button {
+                font-size: 14px; /* 调整按钮的字体大小 */
+            }
+            .quote {
+                font-size: 16px; /* 调整引用文本的字体大小 */
+            }
+            .content {
+                padding: 0 10%; /* 调整内容区域的左右边距 */
+            }
+        }
+    </style>
+    <script>
+        // 检测并根据Cookie加载不同语言的内容
+        document.addEventListener('DOMContentLoaded', function() {
+            var language = getCookie('language');
+            if (language === 'zh') {
+                document.getElementById('title').innerText = '更新 - 2024年6月22日';
+                document.getElementById('content1').innerHTML = '<p><strong>修复各种bug</strong></p><p><strong>添加了十式步战车</strong></p><p><strong>更新了载具贴图</strong></p>';
+                document.getElementById('download-link').innerText = '下载';
+                document.getElementById('back-link').innerText = '返回';
+            } else {
+                document.getElementById('title').innerText = 'Update - June 22, 2024';
+                document.getElementById('content1').innerHTML = '<p><strong>Fixed various bugs</strong></p><p><strong>Added Type 10 APC</strong></p><p><strong>Updated vehicle textures</strong></p>';
+                document.getElementById('download-link').innerText = 'Download';
+                document.getElementById('back-link').innerText = 'Back';
+            }
+        });
+
+        // 获取Cookie的函数
+        function getCookie(name) {
+            var cookieArr = document.cookie.split(';');
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split('=');
+                if (name === cookiePair[0].trim()) {
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2 id="title">Update - June 22, 2024</h2>
+        <div class="content" id="content1">
+            <p><strong>Fixed various bugs</strong></p>
+            <p><strong>Added Type 10 APC</strong></p>
+            <p><strong>Updated vehicle textures</strong></p>
+        </div>
+        <div class="download-link">
+            <a href="https://www.mediafire.com/file/h0i8e9ygx1uqlow/Firefight_SES_8.4.0.apk/file" id="download-link">Download</a>
+        </div>
+        <div class="back-button">
+            <a href="index.html" id="back-link">Back</a>
+        </div>
+    </div>
+</body>
+</html>
+</html>
