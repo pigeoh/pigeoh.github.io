@@ -61,35 +61,35 @@
         }
         @media (max-width: 768px) {
             .title {
-                font-size: 20px; /* Adjust title font size */
+                font-size: 20px;
             }
             .button {
-                font-size: 14px; /* Adjust button font size */
+                font-size: 14px;
             }
             .quote {
-                font-size: 16px; /* Adjust quote font size */
+                font-size: 16px;
             }
             .content {
-                padding: 0 10%; /* Adjust content padding */
+                padding: 0 10%;
             }
         }
         .image-container {
             margin-bottom: 20px;
             text-align: center;
-       }
-       .image {
+        }
+        .image {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
-       }
-       .image-caption {
+        }
+        .image-caption {
             font-size: 14px;
             color: #555;
             margin-top: 5px;
-       }
+        }
     </style>
     <script>
-        const website_version = '0.1.6'; // Define the website version as a constant
+        const website_version = '0.1.7';
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -103,8 +103,8 @@
                 document.cookie = "language=en; path=/";
                 title.innerText = 'Firefight: Shonan Emergency State';
                 footer.innerHTML = 'Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV mod "The New Order: Last Days of Europe" and developed based on the game Firefight. Thank you for visiting this website.';
-                content1.innerHTML = '
-                    <span class="quote">"Over 20 years of war, whether it\'s the 25th Army, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya\'s economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
+                content1.innerHTML = `
+                    <span class="quote">"Over 20 years of war, whether it's the 25th Army, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
                     <h2>View</h2>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
@@ -126,22 +126,22 @@
                         <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
                         <p class="image-caption">Game UI</p>
                     </div>`;
-                content2.innerHTML = '
+                content2.innerHTML = `
                     <h2>How to Get This Mod</h2>
                     <p>You can obtain this mod through the following link!</p>
                     <p><a href="update.html">Update - July 7, 2024</a></p>
                     <p><a href="update2.html">Update - July 1, 2024</a></p>
                     <p><a href="update3.html">Update - June 22, 2024</a></p>
-                    <p><a href="update4.html">Update - June 12, 2024</a></p>';
+                    <p><a href="update4.html">Update - June 12, 2024</a></p>`;
                 versionText.innerText = `Website Version: ${website_version}`;
-                visitCount.style.display = 'inline'; // Display visit count
+                visitCount.style.display = 'inline';
             } else if (lang === 'zh') {
                 document.cookie = "language=zh; path=/";
                 title.innerText = '交战: 昭南紧急状态';
-                footer.innerHTML = '
+                footer.innerHTML = `
                     访问量: <span id="visit-count">0</span>
-                    <br>本模组灵感来源于钢铁雄心IV模组《新秩序：欧洲末日》，基于游戏Firefight开发，感谢您浏览本网站。';
-                content1.innerHTML = '
+                    <br>本模组灵感来源于钢铁雄心IV模组《新秩序：欧洲末日》，基于游戏Firefight开发，感谢您浏览本网站。`;
+                content1.innerHTML = `
                     <span class="quote">“超过20年的战争，无论是第25军，马来亚人民，马来亚游击队，还是日本人，又或是远在大洋彼岸的美国人，所有人都已经筋疲力尽。日复一日的治安战已经拖垮了马来亚的经济。马来亚除了人和信念，早已一无所有。所有的希望都被淹没在这片绿色的地狱中，而这片绿色的地狱又被白磷弹所淹没。”</span>
                     <h2>展示</h2>
                     <div class="image-container">
@@ -162,21 +162,17 @@
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
-                        <p class="image-caption">游戏内UI</p>';
-                    </div>
-                content2.innerHTML = '
-                    <h2>如何获得本模组</h2>
-                    <p>你可以通过以下链接获得本模组！</p>
-                    <p><a href="update.html">2024年7月7日更新</a></p>
-                    <p><a href="update2.html">2024年7月1日更新</a></p>
-                    <p><a href="update3.html">2024年6月22日更新</a></p>
-                    <p><a href="update3.html">2024年6月12日更新</a></p>';
+                        <p class="image-caption">游戏内UI</p>
+                    </div>`;
+                content2.innerHTML = `
+                    <h2>如何获取这个模组</h2>
+                    <p>您可以通过以下链接获取此模组！</p>
+                    <p><a href="update.html">更新 - 2024年7月7日</a></p>
+                    <p><a href="update2.html">更新 - 2024年7月1日</a></p>
+                    <p><a href="update3.html">更新 - 2024年6月22日</a></p>
+                    <p><a href="update4.html">更新 - 2024年6月12日</a></p>`;
                 versionText.innerText = `网站版本: ${website_version}`;
-                visitCount.style.display = 'inline'; // Display visit count
-            } else {
-                // Default to English if language is neither 'en' nor 'zh'
-                setLanguage('en');
-                return;
+                visitCount.style.display = 'inline';
             }
         }
 
@@ -187,67 +183,33 @@
         }
 
         window.onload = function() {
-            const referrer = document.referrer;
-            const language = getCookie('language') || 'en';
-            setLanguage(language);
-            document.getElementById('language-select').value = language; // Set dropdown value based on cookie
-            increaseVisitCount();
-        };
+            const lang = getCookie('language');
+            if (lang) {
+                setLanguage(lang);
+            } else {
+                setLanguage('en');
+            }
 
-        let visitCount = 0;
-        function increaseVisitCount() {
-            visitCount++;
-            document.getElementById('visit-count').innerText = visitCount;
+            fetch('https://api.countapi.xyz/hit/shonanemergency.com/visits')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('visit-count').innerText = data.value;
+                })
+                .catch(error => console.error('Error fetching visit count:', error));
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <div class="version" id="version-text">Website Version</div>
-        <img src="https://www.mediafire.com/convkey/00ff/pppcdt00hfgtzwyzg.jpg" alt="Shonan Emergency State" class="image">
-        <div id="title" class="title">Firefight: Shonan Emergency State</div>
+        <h1 id="title" class="title"></h1>
         <div class="button-container">
-            <select id="language-select" class="button" onchange="setLanguage(this.value); increaseVisitCount()">
-                <option value="en">English</option>
-                <option value="zh">中文</option>
-            </select>
+            <button class="button" onclick="setLanguage('en')">English</button>
+            <button class="button" onclick="setLanguage('zh')">中文</button>
         </div>
-        <div class="content" id="content-text1">
-            <span class="quote">"Over 20 years of war, whether it's the 25th Army, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
-            <h2>View</h2>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
-                <p class="image-caption">Type 1 Ho-ki ATGM</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
-                <p class="image-caption">Type 1 Chi-Ri MBT</p>
-            </div>
-            <div class="image-container">
-               <img src="https://www.mediafire.com/convkey/b3d8/c4u4lgt5cf71bkbzg.jpg" alt="Type 1 Ho-Ki APC and Type 10 APC" class="image">
-               <p class="image-caption">Type 1 Ho-Ki APC and Type 10 APC</p>
-            </div>
-            <div class="image-container">
-               <img src="https://www.mediafire.com/convkey/6e55/5zcy3jvayqcfp0kzg.jpg" alt="Menu UI" class="image">
-               <p class="image-caption">Menu UI</p>
-            </div>
-            <div class="image-container">
-               <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
-               <p class="image-caption">Game UI</p>
-           </div>
-        </div>
-        <div class="content" id="content-text2">
-            <h2>How to Get This Mod</h2>
-            <p>You can obtain this mod through the following link!</p>
-            <p><a href="update.html">Update - July 7, 2024</a></p>
-            <p><a href="update2.html">Update - July 1, 2024</a></p>
-            <p><a href="update3.html">Update - June 22, 2024</a></p>
-            <p><a href="update3.html">Update - June 12, 2024</a></p>
-        </div>
-    </div>
-    <div class="footer" id="footer-text">
-        <span id="visit-count" style="display: none;">Visits:0<br></span>
-            This mod is inspired by the Hearts of Iron IV mod "The New Order: Last Days of Europe" and developed based on the game Firefight. Thank you for visiting this website.
+        <div id="content-text1" class="content"></div>
+        <div id="content-text2" class="content"></div>
+        <div id="footer-text" class="footer"></div>
+        <div id="version-text" class="version"></div>
     </div>
 </body>
 </html>
