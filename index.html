@@ -75,7 +75,7 @@
         }
     </style>
     <script>
-        const website_version = '0.1.4'; // 将网站版本定义为常量
+        const website_version = '0.1.45'; // 将网站版本定义为常量
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -156,7 +156,7 @@
                     <p><a href="update.html">更新 - 2024年7月7日</a></p>
                     <p><a href="update2.html">更新 - 2024年7月1日</a></p>
                     <p><a href="update3.html">更新 - 2024年6月22日</a></p>
-                    <p><a href="update3.html">更新 - 2024年6月12日</a></p>`;
+                    <p><a href="update4.html">更新 - 2024年6月12日</a></p>`;
                 versionText.innerText = `网站版本: ${website_version}`;
                 visitCount.style.display = 'inline';
             } else {
@@ -189,7 +189,6 @@
 </head>
 <body>
     <div class="container">
-        <div class="version" id="version-text">网站版本</div>
         <img src="https://www.mediafire.com/convkey/00ff/pppcdt00hfgtzwyzg.jpg" alt="Shonan Emergency State" class="image">
         <div id="title" class="title">Firefight: Shonan Emergency State</div>
         <div class="button-container">
@@ -199,20 +198,21 @@
             </select>
         </div>
         <div class="content" id="content-text1">
-            <span class="quote">"超过20年的战争，无论是第25军，马来亚人民，马来亚游击队，还是日本人，又或是远在大洋彼岸的美国人，所有人都已经筋疲力尽。日复一日的治安战已经拖垮了马来亚的经济。马来亚除了人和信念，早已一无所有。所有的希望都被淹没在这片绿色的地狱中，而这片绿色的地狱又被白磷弹所淹没。”</span>
+            <span class="quote">text1</span>
         </div>
         <div class="content" id="content-text2">
-            <h2>如何获取这个模组</h2>
-            <p>您可以通过以下链接获取此模组！</p>
-            <p><a href="update.html">更新 - 2024年7月7日</a></p>
-            <p><a href="update2.html">更新 - 2024年7月1日</a></p>
-            <p><a href="update3.html">更新 - 2024年6月22日</a></p>
-            <p><a href="update4.html">更新 - 2024年6月12日</a></p>
+            <h2>text2</h2>
+            <p>text3</p>
+            <p><a href="update.html">text4</a></p>
+            <p><a href="update2.html">text5</a></p>
+            <p><a href="update3.html">text6</a></p>
+            <p><a href="update4.html">text7</a></p>
         </div>
     </div>
     <div class="footer" id="footer-text">
-        <span id="visit-count" style="display: none;">访问量: 0<br></span>
-        本模组灵感来源于钢铁雄心IV模组《新秩序：欧洲末日》，基于游戏Firefight开发，感谢您浏览本网站。
+        <span id="visit-count" style="display: none;">text8<br></span>
+        text9
+        <br><span class="version">text10${website_version}</span>
     </div>
 </body>
 </html>
