@@ -34,16 +34,17 @@
         }
         @media (max-width: 768px) {
             .title {
-             font-size: 20px; /* 调整标题的字体大小 */
-        }
-        .button {
-            font-size: 14px; /* 调整按钮的字体大小 */
-        }
-        .quote {
-            font-size: 16px; /* 调整引用文本的字体大小 */
-        }
-        .content {
-            padding: 0 10%; /* 调整内容区域的左右边距 */
+                font-size: 20px; /* Adjust title font size */
+            }
+            .button {
+                font-size: 14px; /* Adjust button font size */
+            }
+            .quote {
+                font-size: 16px; /* Adjust quote font size */
+            }
+            .content {
+                padding: 0 10%; /* Adjust content padding */
+            }
         }
     </style>
     <script>
@@ -51,13 +52,13 @@
         document.addEventListener('DOMContentLoaded', function() {
             var language = getCookie('language');
             if (language === 'zh') {
-                document.getElementById('title').innerText = '更新 - 2024年6月22日';
-                document.getElementById('content1').innerHTML = '<p><strong>添加十式步战车</strong></p><p><strong>更新了载具贴图</strong></p><p><strong>移除了HIM</strong></p>';
+                document.getElementById('title').innerText = '更新 - 2024年6月12日';
+                document.getElementById('content1').innerHTML = '<p><strong>添加了日本干涉军</strong></p><p><strong>添加了一式步战车</strong></p><p><strong>添加了UMAJF民兵</strong></p>';
                 document.getElementById('download-link').innerText = '下载';
                 document.getElementById('back-link').innerText = '返回';
             } else {
-                document.getElementById('title').innerText = 'Update - June 22, 2024';
-                document.getElementById('content1').innerHTML = '<p><strong>Added Type 10 Infantry Fighting Vehicle</strong></p><p><strong>Updated the vehicles\' textures</strong></p><p><strong>Removed HIM</strong></p>';
+                document.getElementById('title').innerText = 'Update - June 12, 2024';
+                document.getElementById('content1').innerHTML = '<p><strong>Added Japanese Intervention Army</strong></p><p><strong>Added Type 1 APC</strong></p><p><strong>Added UMAJF Militia</strong></p>';
                 document.getElementById('download-link').innerText = 'Download';
                 document.getElementById('back-link').innerText = 'Back';
             }
@@ -78,14 +79,14 @@
 </head>
 <body>
     <div class="container">
-        <h2 id="title">Update - June 22, 2024</h2>
+        <h2 id="title">Update - June 12, 2024</h2>
         <div class="content" id="content1">
-            <p><strong>Added Type 10 Infantry Fighting Vehicle</strong></p>
-            <p><strong>Updated the vehicles' textures</strong></p>
-            <p><strong>Removed HIM</strong></p>
+            <p><strong>Added Japanese Intervention Army</strong></p>
+            <p><strong>Added Type 1 APC</strong></p>
+            <p><strong>Added UMAJF Militia</strong></p>
         </div>
         <div class="download-link">
-            <a href="https://download942.mediafire.com/zhfhvf44ynygJnRNmBMq0NDBpAjrivkmLT8BGC5rKOHsXepxYQdLQ8h6RrtTIbZH-FiaHc_QPE8EWRHyRpmFOLo8mOpgfECqD4eXsbSToAujThHN1PGNMEpU00di0gRtpKEBtf9Lx1IxdhB6XyYhDQEIQ2x6SLjfpuD8HsHlagR9kg/h0i8e9ygx1uqlow/Firefight_SES_8.4.0.apk" id="download-link">Download Firefight: Shonan Emergency State 8.9.0</a>
+            <a href="https://www.mediafire.com/file/aycsowilxbgza09/Firefight_SES_8.3.0.apk/file" id="download-link">Download</a>
         </div>
         <div class="back-button">
             <a href="index.html" id="back-link">Back</a>
