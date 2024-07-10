@@ -96,10 +96,13 @@
     </style>
     <script>
         // 定义网站版本常量
-        const website_version = '0.1.29';
+        const website_version = '0.1.30';
 
         // 设置语言功能
-        function setLanguage(lang) {
+        function setLanguage() {
+            // 获取语言Cookie值
+            const lang = getCookie('language');
+            
             // 获取页面元素
             const title = document.getElementById('title');
             const footer = document.getElementById('footer-text');
@@ -110,8 +113,6 @@
 
             // 根据语言选择更新内容
             if (lang === 'en') {
-                // 设置语言Cookie
-                document.cookie = "language=en; path=/";
                 // 更新英文内容
                 title.innerText = 'Firefight: Shonan Emergency State';
                 footer.innerHTML = 'Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV mod "The New Order: Last Days of Europe" and developed based on the game Firefight. Thank you for visiting this website.';
@@ -148,8 +149,6 @@
                 versionText.innerText = `Website Version: ${website_version}`;
                 visitCount.style.display = 'inline';
             } else if (lang === 'zh') {
-                // 设置语言Cookie
-                document.cookie = "language=zh; path=/";
                 // 更新中文内容
                 title.innerText = '交战: 昭南紧急状态';
                 footer.innerHTML = `
@@ -197,15 +196,14 @@
             if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
+        // 页面加载完成时执行初始化操作
         document.addEventListener("DOMContentLoaded", function() {
-            const lang = getCookie('language');
+            setLanguage(); // 设置语言内容
             const dropdown = document.querySelector('.dropdown');
-            
+            const lang = getCookie('language');
+
             if (lang) {
                 dropdown.value = lang; // 设置下拉菜单为存储的语言
-                setLanguage(lang); // 根据存储的语言设置页面内容
-            } else {
-                setLanguage('en'); // 如果没有找到语言Cookie，默认设置为英语
             }
 
             // 添加下拉菜单变更事件监听器
@@ -238,4 +236,3 @@
 </body>
 
 </html>
-
