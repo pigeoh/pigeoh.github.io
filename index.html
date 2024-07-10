@@ -196,6 +196,7 @@
             const lang = getCookie('language');
             if (lang) {
                 document.querySelector('.lang').value = lang; // Set dropdown to selected language
+                document.querySelector('.dropdown').value = lang; // Set dropdown to selected language
             } else {
                 setLanguage('en'); // Default to English if no language cookie found
             }
