@@ -99,7 +99,7 @@
         }
     </style>
     <script>
-        const website_version = '0.1.26';
+        const website_version = '0.1.27';
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -194,12 +194,19 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             const lang = getCookie('language');
+            const dropdown = document.querySelector('.dropdown');
             if (lang) {
+                dropdown.value = lang; // Set dropdown to selected language
                 setLanguage(lang); // Set content based on stored language
-                document.querySelector('.dropdown').value = lang; // Set dropdown to selected language
             } else {
                 setLanguage('en'); // Default to English if no language cookie found
             }
+
+            // Add change event listener to dropdown
+            dropdown.addEventListener('change', function() {
+                const selectedLang = this.value;
+                setLanguage(selectedLang);
+            });
         });
 
     </script>
