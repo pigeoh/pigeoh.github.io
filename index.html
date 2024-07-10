@@ -99,7 +99,7 @@
         }
     </style>
     <script>
-        const website_version = '0.1.21';
+        const website_version = '0.1.22';
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -218,7 +218,7 @@
         </div>
         <h1 id="title" class="title"></h1>
         <div class="dropdown-container">
-            <select class="dropdown" onchange="setLanguage(this.value)">
+            <select class="dropdown" onchange="setLanguageCookie(this.value)">
                 <option value="en">English</option>
                 <option value="zh">中文</option>
             </select>
