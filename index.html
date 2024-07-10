@@ -99,24 +99,7 @@
         }
     </style>
     <script>
-        window.onload = function () {
-            const lang = getCookie('language');
-            if (lang) {
-                setLanguage(lang); // Set content based on stored language
-                document.querySelector('.dropdown').value = lang; // Set dropdown to selected language
-            } else {
-                setLanguage('en'); // Default to English if no language cookie found
-            }
-
-            fetch('https://api.countapi.xyz/hit/shonanemergency.com/visits')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('visit-count').innerText = data.value; // Display visit count
-                })
-                .catch(error => console.error('Error fetching visit count:', error));
-        }
-        
-        const website_version = '0.1.13';
+        const website_version = '0.1.14';
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -209,6 +192,22 @@
             if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
+        window.onload = function () {
+            const lang = getCookie('language');
+            if (lang) {
+                setLanguage(lang); // Set content based on stored language
+                document.querySelector('.dropdown').value = lang; // Set dropdown to selected language
+            } else {
+                setLanguage('en'); // Default to English if no language cookie found
+            }
+
+            fetch('https://api.countapi.xyz/hit/shonanemergency.com/visits')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('visit-count').innerText = data.value; // Display visit count
+                })
+                .catch(error => console.error('Error fetching visit count:', error));
+        }
     </script>
 </head>
 
@@ -230,4 +229,5 @@
         <div id="version-text" class="version"></div>
     </div>
 </body>
+
 </html>
