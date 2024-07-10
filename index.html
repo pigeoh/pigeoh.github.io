@@ -36,10 +36,6 @@
             font-weight: bold;
         }
 
-        .button-container {
-            margin-top: 20px;
-        }
-
         .footer {
             margin-top: 40px;
             font-size: 14px;
@@ -99,94 +95,102 @@
         }
     </style>
     <script>
+        // 定义网站版本常量
         const website_version = '0.1.28';
 
+        // 设置语言功能
         function setLanguage(lang) {
-    const title = document.getElementById('title');
-    const footer = document.getElementById('footer-text');
-    const content1 = document.getElementById('content-text1');
-    const content2 = document.getElementById('content-text2');
-    const visitCount = document.getElementById('visit-count');
-    const versionText = document.getElementById('version-text');
+            // 获取页面元素
+            const title = document.getElementById('title');
+            const footer = document.getElementById('footer-text');
+            const content1 = document.getElementById('content-text1');
+            const content2 = document.getElementById('content-text2');
+            const visitCount = document.getElementById('visit-count');
+            const versionText = document.getElementById('version-text');
 
-    if (lang === 'en') {
-        document.cookie = "language=en; path=/";
-        title.innerText = 'Firefight: Shonan Emergency State';
-        footer.innerHTML = 'Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV mod "The New Order: Last Days of Europe" and developed based on the game Firefight. Thank you for visiting this website.';
-        content1.innerHTML = `
-            <span class="quote">"Over 20 years of war, whether it's the 25th Army, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
-            <h2>View</h2>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
-                <p class="image-caption">Type 1 Ho-Ki ATGM</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
-                <p class="image-caption">Type 1 Chi-Ri MBT</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/b3d8/c4u4lgt5cf71bkbzg.jpg" alt="Type 1 Ho-Ki APC and Type 10 APC" class="image">
-                <p class="image-caption">Type 1 Ho-Ki APC and Type 10 APC</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/6e55/5zcy3jvayqcfp0kzg.jpg" alt="Menu UI" class="image">
-                <p class="image-caption">Menu UI</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
-                <p class="image-caption">Game UI</p>
-            </div>`;
-        content2.innerHTML = `
-            <h2>How to Get This Mod</h2>
-            <p>You can obtain this mod through the following link!</p>
-            <p><a href="update.html">Update - July 7, 2024</a></p>
-            <p><a href="update2.html">Update - July 1, 2024</a></p>
-            <p><a href="update3.html">Update - June 22, 2024</a></p>
-            <p><a href="update4.html">Update - June 12, 2024</a></p>`;
-        versionText.innerText = `Website Version: ${website_version}`;
-        visitCount.style.display = 'inline';
-    } else if (lang === 'zh') {
-        document.cookie = "language=zh; path=/";
-        title.innerText = '交战: 昭南紧急状态';
-        footer.innerHTML = `
-            访问量: <span id="visit-count">0</span>
-            <br>本模组灵感来源于钢铁雄心IV模组《新秩序：欧洲末日》，基于游戏Firefight开发，感谢您浏览本网站。`;
-        content1.innerHTML = `
-            <span class="quote">“超过20年的战争，无论是第25军，马来亚人民，马来亚游击队，还是日本人，又或是远在大洋彼岸的美国人，所有人都已经筋疲力尽。日复一日的治安战已经拖垮了马来亚的经济。马来亚除了人和信念，早已一无所有。所有的希望都被淹没在这片绿色的地狱中，而这片绿色的地狱又被白磷弹所淹没。”</span>
-            <h2>展示</h2>
-            <div class="image-container">
-              <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
-              <p class="image-caption">Type 1 Ho-Ki 反坦克导弹车</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
-                <p class="image-caption">Type 5 Chi-Ri 主战坦克</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/b3d8/c4u4lgt5cf71bkbzg.jpg" alt="Type 1 Ho-Ki APC and Type 10 APC" class="image">
-                <p class="image-caption">Type 1 Ho-Ki装甲运兵车和Type 10装甲运兵车</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/6e55/5zcy3jvayqcfp0kzg.jpg" alt="Menu UI" class="image">
-                <p class="image-caption">主菜单ui</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
-                <p class="image-caption">游戏内UI</p>
-            </div>`;
-        content2.innerHTML = `
-            <h2>如何获取这个模组</h2>
-            <p>您可以通过以下链接获取此模组！</p>
-            <p><a href="update.html">更新 - 2024年7月7日</a></p>
-            <p><a href="update2.html">更新 - 2024年7月1日</a></p>
-            <p><a href="update3.html">更新 - 2024年6月22日</a></p>
-            <p><a href="update4.html">更新 - 2024年6月12日</a></p>`;
-        versionText.innerText = `网站版本: ${website_version}`;
-        visitCount.style.display = 'inline';
-    }
-}
+            // 根据语言选择更新内容
+            if (lang === 'en') {
+                // 设置语言Cookie
+                document.cookie = "language=en; path=/";
+                // 更新英文内容
+                title.innerText = 'Firefight: Shonan Emergency State';
+                footer.innerHTML = 'Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV mod "The New Order: Last Days of Europe" and developed based on the game Firefight. Thank you for visiting this website.';
+                content1.innerHTML = `
+                    <span class="quote">"Over 20 years of war, whether it's the 25th Army, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
+                    <h2>View</h2>
+                    <div class="image-container">
+                        <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
+                        <p class="image-caption">Type 1 Ho-Ki ATGM</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
+                        <p class="image-caption">Type 1 Chi-Ri MBT</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://www.mediafire.com/convkey/b3d8/c4u4lgt5cf71bkbzg.jpg" alt="Type 1 Ho-Ki APC and Type 10 APC" class="image">
+                        <p class="image-caption">Type 1 Ho-Ki APC and Type 10 APC</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://www.mediafire.com/convkey/6e55/5zcy3jvayqcfp0kzg.jpg" alt="Menu UI" class="image">
+                        <p class="image-caption">Menu UI</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
+                        <p class="image-caption">Game UI</p>
+                    </div>`;
+                content2.innerHTML = `
+                    <h2>How to Get This Mod</h2>
+                    <p>You can obtain this mod through the following link!</p>
+                    <p><a href="update.html">Update - July 7, 2024</a></p>
+                    <p><a href="update2.html">Update - July 1, 2024</a></p>
+                    <p><a href="update3.html">Update - June 22, 2024</a></p>
+                    <p><a href="update4.html">Update - June 12, 2024</a></p>`;
+                versionText.innerText = `Website Version: ${website_version}`;
+                visitCount.style.display = 'inline';
+            } else if (lang === 'zh') {
+                // 设置语言Cookie
+                document.cookie = "language=zh; path=/";
+                // 更新中文内容
+                title.innerText = '交战: 昭南紧急状态';
+                footer.innerHTML = `
+                    访问量: <span id="visit-count">0</span>
+                    <br>本模组灵感来源于钢铁雄心IV模组《新秩序：欧洲末日》，基于游戏Firefight开发，感谢您浏览本网站。`;
+                content1.innerHTML = `
+                    <span class="quote">“超过20年的战争，无论是第25军，马来亚人民，马来亚游击队，还是日本人，又或是远在大洋彼岸的美国人，所有人都已经筋疲力尽。日复一日的治安战已经拖垮了马来亚的经济。马来亚除了人和信念，早已一无所有。所有的希望都被淹没在这片绿色的地狱中，而这片绿色的地狱又被白磷弹所淹没。”</span>
+                    <h2>展示</h2>
+                    <div class="image-container">
+                      <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
+                      <p class="image-caption">Type 1 Ho-Ki 反坦克导弹车</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
+                        <p class="image-caption">Type 5 Chi-Ri 主战坦克</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://www.mediafire.com/convkey/b3d8/c4u4lgt5cf71bkbzg.jpg" alt="Type 1 Ho-Ki APC and Type 10 APC" class="image">
+                        <p class="image-caption">Type 1 Ho-Ki装甲运兵车和Type 10装甲运兵车</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://www.mediafire.com/convkey/6e55/5zcy3jvayqcfp0kzg.jpg" alt="Menu UI" class="image">
+                        <p class="image-caption">主菜单ui</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
+                        <p class="image-caption">游戏内UI</p>
+                    </div>`;
+                content2.innerHTML = `
+                    <h2>如何获取这个模组</h2>
+                    <p>您可以通过以下链接获取此模组！</p>
+                    <p><a href="update.html">更新 - 2024年7月7日</a></p>
+                    <p><a href="update2.html">更新 - 2024年7月1日</a></p>
+                    <p><a href="update3.html">更新 - 2024年6月22日</a></p>
+                    <p><a href="update4.html">更新 - 2024年6月12日</a></p>`;
+                versionText.innerText = `网站版本: ${website_version}`;
+                visitCount.style.display = 'inline';
+            }
+        }
 
-
+        // 获取Cookie
         function getCookie(name) {
             const value = `; ${document.cookie}`;
             const parts = value.split(`; ${name}=`);
@@ -196,14 +200,15 @@
         document.addEventListener("DOMContentLoaded", function() {
             const lang = getCookie('language');
             const dropdown = document.querySelector('.dropdown');
+            
             if (lang) {
-                dropdown.value = lang; // Set dropdown to selected language
-                setLanguage(lang); // Set content based on stored language
+                dropdown.value = lang; // 设置下拉菜单为存储的语言
+                setLanguage(lang); // 根据存储的语言设置页面内容
             } else {
-                setLanguage('en'); // Default to English if no language cookie found
+                setLanguage('en'); // 如果没有找到语言Cookie，默认设置为英语
             }
 
-            // Add change event listener to dropdown
+            // 添加下拉菜单变更事件监听器
             dropdown.addEventListener('change', function() {
                 const selectedLang = this.value;
                 setLanguage(selectedLang);
@@ -233,3 +238,4 @@
 </body>
 
 </html>
+
