@@ -99,21 +99,7 @@
         }
     </style>
     <script>
-        const website_version = '0.1.25';
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const lang = getCookie('language');
-            setLanguage(lang); // 设置页面初始语言
-
-            const dropdown = document.querySelector('.dropdown');
-            if (lang) {
-                dropdown.value = lang; // 设置下拉菜单为已存储的语言选择
-            }
-
-            dropdown.addEventListener('change', function () {
-                setLanguage(this.value); // 用户更改语言时调用 setLanguage 函数
-            });
-        });
+        const website_version = '0.1.26';
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -169,8 +155,8 @@
                     <span class="quote">“超过20年的战争，无论是第25军，马来亚人民，马来亚游击队，还是日本人，又或是远在大洋彼岸的美国人，所有人都已经筋疲力尽。日复一日的治安战已经拖垮了马来亚的经济。马来亚除了人和信念，早已一无所有。所有的希望都被淹没在这片绿色的地狱中，而这片绿色的地狱又被白磷弹所淹没。”</span>
                     <h2>展示</h2>
                     <div class="image-container">
-                      <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
-                      <p class="image-caption">Type 1 Ho-Ki 反坦克导弹车</p>
+                        <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
+                        <p class="image-caption">Type 1 Ho-Ki 反坦克导弹车</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
@@ -205,6 +191,17 @@
             const parts = value.split(`; ${name}=`);
             if (parts.length === 2) return parts.pop().split(';').shift();
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const lang = getCookie('language');
+            if (lang) {
+                setLanguage(lang); // Set content based on stored language
+                document.querySelector('.dropdown').value = lang; // Set dropdown to selected language
+            } else {
+                setLanguage('en'); // Default to English if no language cookie found
+            }
+        });
+
     </script>
 </head>
 
