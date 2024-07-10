@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firefight: Shonan Emergency State</title>
     <style>
-        /* CSS styles remain unchanged */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -100,9 +99,8 @@
         }
     </style>
     <script>
-        const website_version = '0.1.15';
+        const website_version = '0.1.16';
 
-        // Function to set language based on selection or cookie
         function setLanguage(lang) {
             const title = document.getElementById('title');
             const footer = document.getElementById('footer-text');
@@ -170,78 +168,65 @@
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/6e55/5zcy3jvayqcfp0kzg.jpg" alt="Menu UI" class="image">
-                        <p class="image-caption">菜单界面</p>
+                        <p class="image-caption">主菜单ui</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
-                        <p class="image-caption">游戏界面</p>
+                        <p class="image-caption">游戏内UI</p>
                     </div>`;
+                content2.innerHTML = `
+                    <h2>如何获取这个模组</h2>
+                    <p>您可以通过以下链接获取此模组！</p>
+                    <p><a href="update.html">更新 - 2024年7月7日</a></p>
+                    <p><a href="update2.html">更新 - 2024年7月1日</a></p>
+                    <p><a href="update3.html">更新 - 2024年6月22日</a></p>
+                    <p><a href="update4.html">更新 - 2024年6月12日</a></p>`;
+                versionText.innerText = `网站版本: ${website_version}`;
+                visitCount.style.display = 'inline';
             }
         }
 
-        // Function to check and set language from cookie
-        function checkLanguageFromCookie() {
-            const cookies = document.cookie.split(';');
-            for (let cookie of cookies) {
-                const [key, value] = cookie.split('=');
-                if (key.trim() === 'language') {
-                    setLanguage(value.trim());
-                    return;
-                }
-            }
-            // If no language cookie found, default to English
-            setLanguage('en');
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
-        window.onload = checkLanguageFromCookie;
+        window.onload = function () {
+            const lang = getCookie('language');
+            if (lang) {
+                setLanguage(lang); // Set content based on stored language
+                document.querySelector('.dropdown').value = lang; // Set dropdown to selected language
+            } else {
+                setLanguage('en'); // Default to English if no language cookie found
+            }
+
+            fetch('https://api.countapi.xyz/hit/shonanemergency.com/visits')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('visit-count').innerText = data.value; // Display visit count
+                })
+                .catch(error => console.error('Error fetching visit count:', error));
+        }
     </script>
 </head>
 
 <body>
     <div class="container">
+        <div class="image-container">
+            <img src="https://www.mediafire.com/convkey/ab71/pppcdt00hfgtzwyzg.jpg" alt="Top Image" class="image">
+        </div>
+        <h1 id="title" class="title"></h1>
         <div class="dropdown-container">
-            <select id="language-select" class="dropdown" onchange="setLanguage(this.value)">
+            <select class="dropdown" onchange="setLanguage(this.value)">
                 <option value="en">English</option>
                 <option value="zh">中文</option>
             </select>
         </div>
-        <h1 id="title" class="title">Firefight: Shonan Emergency State</h1>
-        <div class="content" id="content-text1">
-            <span class="quote">"Over 20 years of war, whether it's the 25th Army, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
-            <h2>View</h2>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
-                <p class="image-caption">Type 1 Ho-Ki ATGM</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
-                <p class="image-caption">Type 1 Chi-Ri MBT</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/b3d8/c4u4lgt5cf71bkbzg.jpg" alt="Type 1 Ho-Ki APC and Type 10 APC" class="image">
-                <p class="image-caption">Type 1 Ho-Ki APC and Type 10 APC</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/6e55/5zcy3jvayqcfp0kzg.jpg" alt="Menu UI" class="image">
-                <p class="image-caption">Menu UI</p>
-            </div>
-            <div class="image-container">
-                <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
-                <p class="image-caption">Game UI</p>
-            </div>
-        </div>
-        <div class="content" id="content-text2">
-            <h2>How to Get This Mod</h2>
-            <p>You can obtain this mod through the following link!</p>
-            <p><a href="update.html">Update - July 7, 2024</a></p>
-            <p><a href="update2.html">Update - July 1, 2024</a></p>
-            <p><a href="update3.html">Update - June 22, 2024</a></p>
-            <p><a href="update4.html">Update - June 12, 2024</a></p>
-        </div>
-        <div class="footer" id="footer-text">
-            Visits: <span id="visit-count">0</span><br>This mod is inspired by the Hearts of Iron IV mod "The New Order: Last Days of Europe" and developed based on the game Firefight. Thank you for visiting this website.
-            <div class="version" id="version-text">Website Version: ${website_version}</div>
-        </div>
+        <div id="content-text1" class="content"></div>
+        <div id="content-text2" class="content"></div>
+        <div id="footer-text" class="footer"></div>
+        <div id="version-text" class="version"></div>
     </div>
 </body>
 
