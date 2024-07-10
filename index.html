@@ -88,7 +88,7 @@
         }
     </style>
     <script>
-        const website_version = '0.1.9';
+        const website_version = '0.1.6';
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -144,8 +144,8 @@
                     <span class="quote">“超过20年的战争，无论是第25军，马来亚人民，马来亚游击队，还是日本人，又或是远在大洋彼岸的美国人，所有人都已经筋疲力尽。日复一日的治安战已经拖垮了马来亚的经济。马来亚除了人和信念，早已一无所有。所有的希望都被淹没在这片绿色的地狱中，而这片绿色的地狱又被白磷弹所淹没。”</span>
                     <h2>展示</h2>
                     <div class="image-container">
-                        <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
-                        <p class="image-caption">Type 1 Ho-Ki 反坦克导弹车</p>
+                      <img src="https://www.mediafire.com/convkey/05e8/b403ov8nhfa8xz5zg.jpg" alt="Type 1 Ho-ki ATGM" class="image">
+                      <p class="image-caption">Type 1 Ho-Ki 反坦克导弹车</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
@@ -185,6 +185,7 @@
             const lang = getCookie('language');
             if (lang) {
                 setLanguage(lang);
+                document.querySelector('.dropdown').value = lang;
             } else {
                 setLanguage('en');
             }
@@ -205,7 +206,7 @@
         </div>
         <h1 id="title" class="title"></h1>
         <div class="dropdown-container">
-            <select id="languageSelect" class="dropdown">
+            <select class="dropdown" onchange="setLanguage(this.value)">
                 <option value="en">English</option>
                 <option value="zh">中文</option>
             </select>
@@ -217,4 +218,3 @@
     </div>
 </body>
 </html>
-
