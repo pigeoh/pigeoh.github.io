@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,72 +16,82 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
         .container {
             margin-top: 50px;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
         }
+
         .image {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
         }
+
         .title {
             margin-top: 20px;
             font-size: 24px;
             font-weight: bold;
         }
+
         .button-container {
             margin-top: 20px;
         }
+
         .footer {
             margin-top: 40px;
             font-size: 14px;
             color: #777;
         }
+
         .content {
             text-align: left;
             margin-top: 20px;
             padding: 0 20%;
         }
+
         .quote {
             font-size: 18px;
             font-style: italic;
             color: #555;
         }
+
         .version {
             margin-top: 20px;
             font-size: 12px;
         }
+
         @media (max-width: 768px) {
             .title {
                 font-size: 20px;
             }
+
             .quote {
                 font-size: 16px;
             }
+
             .content {
                 padding: 0 10%;
             }
         }
+
         .image-container {
             margin-bottom: 20px;
             text-align: center;
         }
-        .image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
+
         .image-caption {
             font-size: 14px;
             color: #555;
             margin-top: 5px;
         }
+
         .dropdown-container {
             margin-top: 20px;
         }
+
         .dropdown {
             padding: 10px;
             font-size: 16px;
@@ -88,7 +99,7 @@
         }
     </style>
     <script>
-        const website_version = '0.1.11';
+        const website_version = '0.1.12';
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -181,7 +192,7 @@
             if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
-        window.onload = function() {
+        window.onload = function () {
             const lang = getCookie('language');
             if (lang) {
                 setLanguage(lang); // Set content based on stored language
@@ -199,6 +210,7 @@
         }
     </script>
 </head>
+
 <body>
     <div class="container">
         <div class="image-container">
