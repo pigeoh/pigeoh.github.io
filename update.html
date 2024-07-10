@@ -52,12 +52,12 @@
             var language = getCookie('language');
             if (language === 'zh') {
                 document.getElementById('title').innerText = '更新 - 2024年7月7日';
-                document.getElementById('content1').innerHTML = '<p><strong>Fixed bug where each missile port of TYPE 1 HOKI ATGM could launch multiple missiles</strong></p><p><strong>Added Shonan Regular Army, including Infantry and Scout formations</strong></p><p><strong>Updated main menu UI with better scaling to prevent incorrect aspect ratio stretching</strong></p>';
+                document.getElementById('content1').innerHTML = '<p><strong>修复了TYPE 1 HOKI ATGM每个导弹口可发射多枚导弹的bug</strong></p><p><strong>添加昭南正规军，以及其附属的Infantry编制和Scout编制</strong></p><p><strong>更新主菜单ui，使用了更好的比例以防止错误的比例拉伸</strong></p>';
                 document.getElementById('download-link').innerText = '下载';
                 document.getElementById('back-link').innerText = '返回';
             } else {
                 document.getElementById('title').innerText = 'Update - July 7, 2024';
-                document.getElementById('content1').innerHTML = '<p><strong>Fixed the bug where TYPE 1 HOKI ATGM could launch multiple missiles from each missile port</strong></p><p><strong>Added Shonan Regular Army, along with its Infantry and Scout formations</strong></p>';
+                document.getElementById('content1').innerHTML = '<p><strong>Fixed bug where each missile port of TYPE 1 HOKI ATGM could launch multiple missiles</strong></p><p><strong>Added Shonan Regular Army, including Infantry and Scout formations</strong></p><p><strong>Updated main menu UI with better scaling to prevent incorrect aspect ratio stretching</strong></p>';
                 document.getElementById('download-link').innerText = 'Download';
                 document.getElementById('back-link').innerText = 'Back';
             }
@@ -80,9 +80,7 @@
     <div class="container">
         <h2 id="title">Update - July 7, 2024</h2>
         <div class="content" id="content1">
-            <p><strong>Fixed bug where each missile port of TYPE 1 HOKI ATGM could launch multiple missiles</strong></p>
-            <p><strong>Added Shonan Regular Army, including Infantry and Scout formations</strong></p>
-            <p><strong>Updated main menu UI with better scaling to prevent incorrect aspect ratio stretching</strong></p>
+            <!-- Content will be dynamically filled based on language -->
         </div>
         <div class="download-link">
             <a href="https://www.mediafire.com/file/80p7o6hp5lt4iuw/Firefight__Shonan_Emergency_State_8.9.0.apk/file" id="download-link">2024.7.7</a>
