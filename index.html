@@ -99,7 +99,21 @@
         }
     </style>
     <script>
-        const website_version = '0.1.23';
+        const website_version = '0.1.24';
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const lang = getCookie('language');
+            setLanguage(lang); // 设置页面初始语言
+
+            const dropdown = document.querySelector('.dropdown');
+            if (lang) {
+                dropdown.value = lang; // 设置下拉菜单为已存储的语言选择
+            }
+
+            dropdown.addEventListener('change', function () {
+                setLanguage(this.value); // 用户更改语言时调用 setLanguage 函数
+            });
+        });
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -202,7 +216,7 @@
         </div>
         <h1 id="title" class="title"></h1>
         <div class="dropdown-container">
-            <select class="dropdown" onchange="setLanguage(this.value)">
+            <select class="dropdown">
                 <option value="en">English</option>
                 <option value="zh">中文</option>
             </select>
@@ -213,5 +227,7 @@
         <div id="version-text" class="version"></div>
     </div>
 </body>
+
+</html>
 
 </html>
