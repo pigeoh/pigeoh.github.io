@@ -75,9 +75,9 @@
         }
     </style>
     <script>
-        const website_version = '0.1.5'; // Define the website version as a constant
+        const website_version = '0.1.6'; // Define the website version as a constant
 
-        function setLanguage(lang) {
+        async function setLanguage(lang) {
             const title = document.getElementById('title');
             const footer = document.getElementById('footer-text');
             const content1 = document.getElementById('content-text1');
@@ -139,37 +139,36 @@
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/ab71/e9smk3bvmwyjnndzg.jpg" alt="Type 1 Chi-Ri MBT" class="image">
-                        <p class="image-caption">Type 5 Chi-Ri 主战坦克</p>
+                        <p class="image-caption">Type 1 Chi-Ri 主战坦克</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/b3d8/c4u4lgt5cf71bkbzg.jpg" alt="Type 1 Ho-Ki APC and Type 10 APC" class="image">
-                        <p class="image-caption">Type 1 Ho-Ki 步战车与Type 10步战车</p>
+                        <p class="image-caption">Type 1 Ho-Ki 装甲运兵车和 Type 10 装甲运兵车</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/6e55/5zcy3jvayqcfp0kzg.jpg" alt="Menu UI" class="image">
-                        <p class="image-caption">主菜单ui</p>
+                        <p class="image-caption">菜单界面</p>
                     </div>
                     <div class="image-container">
                         <img src="https://www.mediafire.com/convkey/8a89/a364hux7u7aw5frzg.jpg" alt="Game UI" class="image">
-                        <p class="image-caption">游戏内UI</p>
+                        <p class="image-caption">游戏界面</p>
                     </div>`;
                 content2.innerHTML = `
-                    <h2>如何获取这个模组</h2>
-                    <p>您可以通过以下链接获取此模组！</p>
+                    <h2>如何获取本模组</h2>
+                    <p>您可以通过以下链接获取本模组！</p>
                     <p><a href="update5.html">更新 - 2024年7月13日</a></p>
                     <p><a href="update.html">更新 - 2024年7月7日</a></p>
                     <p><a href="update2.html">更新 - 2024年7月1日</a></p>
                     <p><a href="update3.html">更新 - 2024年6月22日</a></p>
                     <p><a href="update4.html">更新 - 2024年6月12日</a></p>
-                    <h2>授权声明</h2>
-                    <p>本模组非常乐意向您的模组提供技术支持!您可以随意翻看我的模组代码,亦或是使用模组内的一切能够帮助制作的html工具.但请注意,直接的复制粘贴是不可取的,直接的抄袭是对本模组的不尊重,并且并不利于您对代码的理解,请您务必正确使用本模组.我们欢迎模组初学者的学习,但我们不欢迎小偷.</p>`;
+                    <h2>许可声明</h2>
+                    <p>本模组非常愿意为您的模组提供技术支持！您可以随意浏览我的模组代码或使用模组内的任何HTML工具，这些工具能帮助您进行创作。但请注意，直接复制粘贴是不可接受的。直接抄袭不仅是不尊重本模组的行为，而且对您理解代码也没有帮助。请务必正确使用本模组。我们欢迎初学者来学习，但不欢迎偷窃者。</p>`;
                 versionText.innerText = `网站版本: ${website_version}`;
                 visitCount.style.display = 'inline';
-            } else {
-                // 如果语言既不是 'en' 也不是 'zh'，则默认为英语
-                setLanguage('en');
-                return;
             }
+
+            // 更新访问量
+            updateVisitCount();
         }
 
         function getCookie(name) {
@@ -178,50 +177,87 @@
             if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
-        window.onload = function() {
-            const referrer = document.referrer;
-            const language = getCookie('language') || 'en';
-            setLanguage(language);
-            document.getElementById('language-select').value = language; // Set dropdown value based on cookie
-            increaseVisitCount();
-        };
-
-        let visitCount = 0;
-        function increaseVisitCount() {
-            visitCount++;
-            document.getElementById('visit-count').innerText = visitCount;
+        function checkCookie() {
+            const lang = getCookie('language');
+            if (lang === 'en' || lang === 'zh') {
+                setLanguage(lang);
+            } else {
+                setLanguage('en');
+            }
         }
+
+        async function updateVisitCount() {
+            const visitCountElement = document.getElementById('visit-count');
+
+            const repo = 'pigeoh/Website'; // 替换为您的GitHub存储库名称
+            const filePath = 'visits.json';
+            const token = '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'; // 替换为您的GitHub API令牌
+
+            try {
+                // 获取当前的访问量
+                const response = await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}`, {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3.raw'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`GitHub API错误: ${response.status}`);
+                }
+
+                const visits = await response.json();
+                let visitCount = visits.visitCount;
+
+                // 更新访问量
+                visitCount++;
+                visitCountElement.innerText = visitCount;
+
+                // 将新的访问量数据发送回GitHub
+                const updatedVisits = {
+                    visitCount: visitCount
+                };
+
+                const updateResponse = await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: 'Update visit count',
+                        content: btoa(JSON.stringify(updatedVisits)),
+                        sha: visits.sha
+                    })
+                });
+
+                if (!updateResponse.ok) {
+                    throw new Error(`GitHub API错误: ${updateResponse.status}`);
+                }
+
+            } catch (error) {
+                console.error('更新访问量时出错:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkCookie();
+        });
     </script>
 </head>
 <body>
     <div class="container">
-        <img src="https://www.mediafire.com/convkey/00ff/pppcdt00hfgtzwyzg.jpg" alt="Shonan Emergency State" class="image">
-        <div id="title" class="title">Firefight: Shonan Emergency State</div>
-        <div class="button-container">
-            <select id="language-select" class="button" onchange="setLanguage(this.value); increaseVisitCount()">
-                <option value="en">English</option>
-                <option value="zh">中文</option>
-            </select>
+        <h1 id="title">Firefight: Shonan Emergency State</h1>
+        <div id="content-text1" class="content">
+            <!-- 内容部分1 -->
         </div>
-        <div class="content" id="content-text1">
-            <span class="quote">"Over 20 years of war, whether it's the 25th Army, the Malayan people, the Malayan guerrillas, or the Japanese, or the Americans across the ocean, everyone is already exhausted. Day after day of counterinsurgency has dragged down Malaya's economy. Malaya has nothing left except its people and beliefs. All hopes have been drowned in this green hell, and the green hell is submerged in white phosphorus shells."</span>
+        <div id="content-text2" class="content">
+            <!-- 内容部分2 -->
         </div>
-        <div class="content" id="content-text2">
-            <h2>How to Get This Mod</h2>
-            <p>You can obtain this mod through the following link!</p>
-            <p><a href="update.html">Update - July 13, 2024</a></p>
-            <p><a href="update.html">Update - July 7, 2024</a></p>
-            <p><a href="update2.html">Update - July 1, 2024</a></p>
-            <p><a href="update3.html">Update - June 22, 2024</a></p>
-            <p><a href="update4.html">Update - June 12, 2024</a></p>
-            <h2>License Statement</h2>
-            <p>This mod is very willing to provide technical support for your mod! You are free to browse my mod code or use any HTML tools within the mod that can help with your creation. However, please note that direct copy-pasting is not acceptable. Direct plagiarism is disrespectful to this mod and does not help you understand the code. Please make sure to use this mod correctly. We welcome beginners to learn, but we do not welcome thieves.</p>
+        <div class="footer" id="footer-text">
+            访问量: <span id="visit-count">0</span><br>本模组灵感来源于钢铁雄心IV模组《新秩序：欧洲末日》，基于游戏Firefight开发，感谢您浏览本网站。
         </div>
+        <div class="version" id="version-text">网站版本: 0.1.6</div>
     </div>
-    <div class="footer" id="footer-text">
-        <span id="visit-count" style="display: none;">Visits: 0<br></span>
-        This mod is inspired by the Hearts of Iron IV mod "The New Order: Last Days of Europe" and developed based on the game Firefight. Thank you for visiting this website.
-    </div>
-    <div class="version" id="version-text">Website Version</div>
 </body>
 </html>
