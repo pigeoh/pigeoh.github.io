@@ -106,7 +106,7 @@
     </div>
 
     <script>
-        const website_version = '0.1.5'; // Define the website version as a constant
+        const website_version = '0.1.5'; // 定义网站版本为常量
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -181,35 +181,37 @@
                         <p class="image-caption">游戏UI</p>
                     </div>`;
                 content2.innerHTML = `
-                    <h2>获得本模组的方法</h2>
-                    <p>您可以通过以下链接获得本模组：</p>
+                    <h2>如何获得本模组</h2>
+                    <p>您可以通过以下链接获得本模组！</p>
                     <p><a href="update5.html">更新 - 2024年7月13日</a></p>
                     <p><a href="update.html">更新 - 2024年7月7日</a></p>
                     <p><a href="update2.html">更新 - 2024年7月1日</a></p>
                     <p><a href="update3.html">更新 - 2024年6月22日</a></p>
                     <p><a href="update4.html">更新 - 2024年6月12日</a></p>
                     <h2>许可声明</h2>
-                    <p>本模组非常愿意为您的模组提供技术支持！您可以自由查阅本模组代码或使用模组内的任何HTML工具来帮助您的创作。但请注意，直接复制粘贴是不可接受的。直接剽窃不尊重本模组，也不会帮助您理解代码。请务必正确使用本模组。我们欢迎初学者学习，但我们不欢迎小偷。</p>`;
-                versionText.innerText = `网站版本: ${website_version}`;
+                    <p>本模组非常愿意为您的模组提供技术支持！您可以自由浏览我的模组代码或使用本模组内的任何HTML工具来帮助您的创作。但请注意，直接复制粘贴是不可接受的。直接剽窃是对本模组的不敬，也无助于您理解代码。请务必正确使用本模组。我们欢迎初学者学习，但我们不欢迎小偷。</p>`;
+                versionText.innerText = `网站版本：${website_version}`;
             }
         }
 
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-
         function changeLanguage() {
-            const select = document.getElementById('languageSelect');
-            const lang = select.value;
-            setLanguage(lang);
+            const selectElement = document.getElementById('languageSelect');
+            const selectedValue = selectElement.value;
+            setLanguage(selectedValue);
         }
 
+        // On page load
         document.addEventListener('DOMContentLoaded', function () {
-            const languageCookie = getCookie('language');
-            const lang = languageCookie === 'zh' ? 'zh' : 'en';
-            setLanguage(lang);
+            const cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)language\s*=\s*([^;]*).*$)|^.*$/, "$1");
+
+            if (cookieValue && (cookieValue === 'en' || cookieValue === 'zh')) {
+                setLanguage(cookieValue);
+                document.getElementById('languageSelect').value = cookieValue;
+            } else {
+                // Default to English
+                setLanguage('en');
+                document.getElementById('languageSelect').value = 'en';
+            }
         });
     </script>
 </body>
