@@ -75,7 +75,7 @@
         }
     </style>
     <script>
-        const website_version = '0.1.7'; // Define the website version as a constant
+        const website_version = '0.1.8'; // Define the website version as a constant
 
         function setLanguage(lang) {
             const title = document.getElementById('title');
@@ -123,7 +123,6 @@
                     <h2>License Statement</h2>
                     <p>This mod is very willing to provide technical support for your mod! You are free to browse my mod code or use any HTML tools within the mod that can help with your creation. However, please note that direct copy-pasting is not acceptable. Direct plagiarism is disrespectful to this mod and does not help you understand the code. Please make sure to use this mod correctly. We welcome beginners to learn, but we do not welcome thieves.</p>;
                 versionText.innerText = Website Version: ${website_version};
-                visitCount.style.display = 'inline';
             } else if (lang === 'zh') {
                 document.cookie = "language=zh; path=/";
                 title.innerText = '交战: 昭南紧急状态';
@@ -163,7 +162,6 @@
                     <h2>授权声明</h2>
                     <p>本模组非常乐意向您的模组提供技术支持!您可以随意翻看我的模组代码,亦或是使用模组内的一切能够帮助制作的html工具.但请注意,直接的复制粘贴是不可取的,直接的抄袭是对本模组的不尊重,并且并不利于您对代码的理解,请您务必正确使用本模组.我们欢迎模组初学者的学习,但我们不欢迎小偷.</p>;
                 versionText.innerText = 网站版本: ${website_version};
-                visitCount.style.display = 'inline';
             } else {
                 // 如果语言既不是 'en' 也不是 'zh'，则默认为英语
                 setLanguage('en');
