@@ -17,8 +17,6 @@
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
-            opacity: 1; /* 初始透明度 */
-            transition: opacity 2.0s ease-in-out; /* 过渡效果 */
         }
         .image {
             max-width: 100%;
@@ -39,8 +37,6 @@
             text-align: left;
             margin-top: 20px;
             padding: 0 20%;
-            opacity: 1; /* 初始透明度 */
-            transition: opacity 2.0s ease-in-out; /* 过渡效果 */
         }
         .quote {
             font-size: 18px;
@@ -133,6 +129,7 @@
                     <a href="#" id="update4Link" onclick="showSection('update4')"></a>
                     <a href="#" id="update5Link" onclick="showSection('update5')"></a>
                     <a href="#" id="update6Link" onclick="showSection('update6')"></a>
+                    <a href="#" id="update7Link" onclick="showSection('update7')"></a>
                 </div>
                 <div id="content-text3"></div>
             </div>
@@ -157,6 +154,9 @@
             <div id="update6-content" class="hidden">
                 <div id="update6-text1"></div>
             </div>
+            <div id="update7-content" class="hidden">
+                <div id="update7-text1"></div>
+            </div>
         </div>
         <div class="footer">
             <p id="footer-text"></p>
@@ -180,6 +180,7 @@
             const update4 = document.getElementById('update4-text1');
             const update5 = document.getElementById('update5-text1');
             const update6 = document.getElementById('update6-text1');
+            const update7 = document.getElementById('update7-text1');
             const versionText = document.getElementById('version-text');
             const gameLink = document.getElementById('gameLink');
             const backgroundLink = document.getElementById('backgroundLink');
@@ -219,7 +220,8 @@
                     <a href="#" id="update3Link" onclick="showSection('update3')">Update - July 1, 2024</a><br>
                     <a href="#" id="update4Link" onclick="showSection('update4')">Update - July 7, 2024</a><br>
                     <a href="#" id="update5Link" onclick="showSection('update5')">Update - July 13, 2024</a><br>
-                    <a href="#" id="update6Link" onclick="showSection('update6')">Update - July 20, 2024</a>`;
+                    <a href="#" id="update6Link" onclick="showSection('update6')">Update - July 20, 2024</a><br>
+                    <a href="#" id="update7Link" onclick="showSection('update7')">Update - August 26, 2024</a>`;
                 content3.innerHTML = `
                     <h2>License Statement</h2>
                     <p>This mod is very willing to provide technical support for your mod! You are free to browse my mod code or use any HTML tools within the mod that can help with your creation. However, please note that direct copy-pasting is not acceptable. Direct plagiarism is disrespectful to this mod and does not help you understand the code. Please make sure to use this mod correctly. We welcome beginners to learn, but we do not welcome thieves.</p>
@@ -263,6 +265,16 @@
                     <p><strong>Changed background music to the electronic organ version of "Song of Young Japan"</strong></p>
                     <p><strong>Adapted to version 9.0.1 system</strong></p>
                     <a href="https://www.mediafire.com/file/5rgwgstrtb1shbc/Firefight_Shonan_Emergency_State_9.0.1.apk/file" id="download-link">Download</a>`;
+                update7.innerHTML = `
+                    <h2>Update - August 26, 2024</h2>
+                    <p><strong>Added M48 Main Battle Tank</strong></p>
+                    <p><strong>Added Variant of Type 11 Truck: Type 11 with Mounted Cannon</strong></p>
+                    <p><strong>Added Type 11 Infantry Gun</strong></p>
+                    <p><strong>Background music changed back to TNO music "Sunrise High"</strong></p>
+                    <p><strong>Captured vehicles were added for Malayan Guerrillas, with unique textures for the captured vehicles</strong></p>
+                    <p><strong>All vehicle textures were reset; they no longer look as jarring</strong></p>
+                    <p><strong>Adapted to System Version 9.0.2</strong></p>
+                    <a href="https://www.mediafire.com/file/vmodu3bya2t7wkk/Firefight_9.0.2.apk/file" id="download-link">Download</a>`;
                     background1.innerHTML = `
                         <h2>Description</h2>
                         <p>This mod is based on "The New Order: Last Days of Europe" from "Hearts of Iron IV", where the Axis powers, led by Germany, win World War II. Germany dominates all of Europe under its iron boot, Italy rules the Mediterranean, and Japan establishes a new order in East Asia. This mod focuses on the Malayan War, where Japan attempts to build a new order in Malaya but faces strong resistance from local guerrillas. This history draws from the real-life Malayan Emergency, a war waged by the Malayan Communist Party against British colonial rule.</p>
@@ -328,7 +340,8 @@
                     <a href="#" id="update3Link" onclick="showSection('update3')">更新 - 2024年7月1日</a><br>
                     <a href="#" id="update4Link" onclick="showSection('update4')">更新 - 2024年7月7日</a><br>
                     <a href="#" id="update5Link" onclick="showSection('update5')">更新 - 2024年7月13日</a><br>
-                    <a href="#" id="update5Link" onclick="showSection('update6')">更新 - 2024年7月20日</a>`;
+                    <a href="#" id="update6Link" onclick="showSection('update6')">更新 - 2024年7月20日</a><br>
+                    <a href="#" id="update7Link" onclick="showSection('update7')">更新 - 2024年8月26日</a>`;
                 content3.innerHTML = `
                     <h2>许可声明</h2>
                     <p>此模组非常愿意为您的模组提供技术支持！您可以自由浏览我的模组代码或使用模组内的任何HTML工具来帮助您的创作。但是，请注意直接复制粘贴是不可以的。直接剽窃是对本模组的不尊重，也不会帮助您理解代码。请确保正确使用本模组。我们欢迎初学者学习，但不欢迎窃贼。</p>`;
@@ -368,6 +381,16 @@
                     <p><strong>背景音乐更改为青年日本之歌电子琴版</strong></p>
                     <p><strong>适配9.0.1版本系统</strong></p>
                     <a href="https://www.mediafire.com/file/5rgwgstrtb1shbc/Firefight_Shonan_Emergency_State_9.0.1.apk/file" id="download-link">下载</a>`;
+                update7.innerHTML = `
+                    <h2>更新 - 2024年8月26日</h2>
+                    <p><strong>添加了M48主战坦克</strong></p>
+                    <p><strong>添加了11式卡车的变种：车载机炮版11式</strong></p>
+                    <p><strong>添加了11式步兵炮</strong></p>
+                    <p><strong>背景音乐更改回TNO音乐“旭日高悬”</strong></p>
+                    <p><strong>为马来亚游击队增加了缴获车辆，缴获车辆拥有自己独特的贴图</strong></p>
+                    <p><strong>重置了所有载具贴图，现在不再会显得那么突兀了</strong></p>
+                    <p><strong>适配9.0.2版本系统</strong></p>
+                    <a href="https://www.mediafire.com/file/vmodu3bya2t7wkk/Firefight_9.0.2.apk/file" id="download-link">下载</a>`;
                     background1.innerHTML = `
                         <h2>简述</h2>
                         <p>本模组来源于《钢铁雄心IV》模组《The New Order: Last Days of Europe》，是以德国为首的轴心国赢得二战，德国铁靴踏平整个欧洲，意大利统治地中海，日本在东亚建立新秩序，美国前途未卜为世界观的视觉小说。而本模组则是基于这个世界观中日本试图在东亚的马来亚建设新秩序而遭到当地游击队强烈抵抗爆发的马来亚战争创作。该历史借鉴了现实中真实存在的历史：英国马来亚紧急状态，是马来亚共产党为了反抗英国殖民统治而爆发的一场战争。</p>
@@ -415,6 +438,7 @@
             const update4Content = document.getElementById('update4-content');
             const update5Content = document.getElementById('update5-content');
             const update6Content = document.getElementById('update6-content');
+            const update7Content = document.getElementById('update7-content');
 
         if (section === 'game') {
             gameContent.classList.remove('hidden');
@@ -425,6 +449,7 @@
             update4Content.classList.add('hidden');
             update5Content.classList.add('hidden');
             update6Content.classList.add('hidden');
+            update7Content.classList.add('hidden');
         } else if (section === 'background') {
             gameContent.classList.add('hidden');
             backgroundContent.classList.remove('hidden');
@@ -434,6 +459,7 @@
             update4Content.classList.add('hidden');
             update5Content.classList.add('hidden');
             update6Content.classList.add('hidden');
+            update7Content.classList.add('hidden');
         } else if (section === 'update1') {
             gameContent.classList.add('hidden');
             backgroundContent.classList.add('hidden');
@@ -443,6 +469,7 @@
             update4Content.classList.add('hidden');
             update5Content.classList.add('hidden');
             update6Content.classList.add('hidden');
+            update7Content.classList.add('hidden');
         } else if (section === 'update2') {
             gameContent.classList.add('hidden');
             backgroundContent.classList.add('hidden');
@@ -452,6 +479,7 @@
             update4Content.classList.add('hidden');
             update5Content.classList.add('hidden');
             update6Content.classList.add('hidden');
+            update7Content.classList.add('hidden');
         } else if (section === 'update3') {
             gameContent.classList.add('hidden');
             backgroundContent.classList.add('hidden');
@@ -461,6 +489,7 @@
             update4Content.classList.add('hidden');
             update5Content.classList.add('hidden');
             update6Content.classList.add('hidden');
+            update7Content.classList.add('hidden');
         } else if (section === 'update4') {
             gameContent.classList.add('hidden');
             backgroundContent.classList.add('hidden');
@@ -470,6 +499,7 @@
             update4Content.classList.remove('hidden');
             update5Content.classList.add('hidden');
             update6Content.classList.add('hidden');
+            update7Content.classList.add('hidden');
         } else if (section === 'update5') {
             gameContent.classList.add('hidden');
             backgroundContent.classList.add('hidden');
@@ -479,6 +509,7 @@
             update4Content.classList.add('hidden');
             update5Content.classList.remove('hidden');
             update6Content.classList.add('hidden');
+            update7Content.classList.add('hidden');
         } else if (section === 'update6') {
             gameContent.classList.add('hidden');
             backgroundContent.classList.add('hidden');
@@ -488,6 +519,17 @@
             update4Content.classList.add('hidden');
             update5Content.classList.add('hidden');
             update6Content.classList.remove('hidden');
+            update7Content.classList.add('hidden');
+        } else if (section === 'update7') {
+            gameContent.classList.add('hidden');
+            backgroundContent.classList.add('hidden');
+            update1Content.classList.add('hidden');
+            update2Content.classList.add('hidden');
+            update3Content.classList.add('hidden');
+            update4Content.classList.add('hidden');
+            update5Content.classList.add('hidden');
+            update6Content.classList.add('hidden');
+            update7Content.classList.remove('hidden');
         }
 
         }
